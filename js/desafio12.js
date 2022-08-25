@@ -1,10 +1,9 @@
 
 const answerS = "S"
 const answerN = "N"
-valor = false
 
 do{
-    if (valor) {let nombre = prompt("Escribe tu nombre")}
+    let nombre = prompt("Escribe tu nombre")
     let respuesta = prompt("¿Sabes programar en Java (S/N)?")
     if(respuesta == answerS){
         alert(nombre + ", estas contratado")
