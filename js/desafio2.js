@@ -1,6 +1,6 @@
 //Calcular el precio final de una compra de medicinas
 
-
+let cantidad = 0
 let cantidadA = 0
 let cantidadB = 0
 let cantidadC = 0
@@ -16,22 +16,22 @@ let seguirComprando = true
 while(seguirComprando){
         let medicina = prompt("Elige la medicina que deseas comprar escribiendo una letra: A, B o C")
         if (medicina === "A"){
-            let cantidad = parseInt(prompt("Cuantas cajas deseas comprar de A?"))
+            cantidad = parseInt(prompt("Cuantas cajas deseas comprar de A?"))
             cantidadA = cantidadA + cantidad
-            subtotalA = subtotalA + preciounitarioA * cantidadA}
+            subtotalA = subtotalA + (preciounitarioA * cantidadA)}
         else if (medicina === "B"){
-            let cantidad = parseInt(prompt("Cuantas cajas deseas comprar de B?"))
+            cantidad = parseInt(prompt("Cuantas cajas deseas comprar de B?"))
             cantidadB = cantidadB + cantidad
-            subtotalB = subtotalB + preciounitarioB * cantidadB}
+            subtotalB = subtotalB + (preciounitarioB * cantidadB)}
         else if (medicina === "C"){
-            let cantidad = parseInt(prompt("Cuantas cajas deseas comprar de C?"))
+            cantidad = parseInt(prompt("Cuantas cajas deseas comprar de C?"))
             cantidad = cantidadC + cantidad
-            subtotalC = subtotalC + preciounitarioC * cantidadC}
-        else {alert("Indica un producto valido")
-            seguirComprando = "S"}
+            subtotalC = subtotalC + (preciounitarioC * cantidadC)}
+        else {alert("Indica un producto valido")}
 
         let comprarMas = prompt("Deseas seguir comprando S/N?")
         if (comprarMas = "N"){seguirComprando = false}
+        cantidad = 0
  }
           
 
