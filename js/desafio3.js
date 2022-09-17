@@ -16,7 +16,7 @@
 
 //ARRAY: El tipoDeCredito son los tipos de credito que existen y que eligira el cliente 
 
-tiposDeCredito = [
+let tiposDeCredito = [
   [
     {
       tipo: 'simple',
@@ -86,7 +86,7 @@ class Solicitudes {
   }
   //Con idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
     indice = tiposDeCredito.indexOf(this.credito)
-    ixaplicar = tiposDecredito.esquema.interes[indice]
+    ixaplicar = tiposDeCredito.esquema.interes[indice]
     autorizado(){
         pagomensual = (this.monto*(1+ixaplicar/100)/this.plazo)
         if (pagomensual>=(this.ingreso*0.3)){

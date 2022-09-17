@@ -19,7 +19,7 @@
 tiposDeCredito = [
     [
       {
-        tipo: 'simple',
+        tipo: 'Simple',
         esquema: [
           {
             plazo: 12,
@@ -36,7 +36,7 @@ tiposDeCredito = [
         ],
       },
       {
-          tipo: 'hipotecario',
+          tipo: 'Hipotecario',
           esquema: [
           {
             plazo: 120,
@@ -53,7 +53,7 @@ tiposDeCredito = [
         ],
       },
       {
-          tipo: 'automotriz',
+          tipo: 'Automotriz',
           esquema: [
           {
             plazo: 12,
@@ -73,9 +73,30 @@ tiposDeCredito = [
   ]
   ]
   
+  
+  //Después de haberle preguntado al cliente en el Index, leemos el formularo del storage
+
+const solicitud = []
+const div1 = document.querySelector('.div1')
+const formulario = document.getElementById('form')
+formulario.onsubmit = (e)=>{
+    e.preventDefault()
+    Array.from(e.target.children).forEach(elemento=>{
+      //En el array solicitud cargo todos los elementos que lei del cliente 
+        solicitud.push(elemento.value)
+    })
+}
+
+const nombre = solicitud[0]
+const monto = solicitud[1]
+const ingreso = solicitud[2]
+const credito = solicitud[3]
+const plazo = solicitud[4]
+
+console.log(nombre)
+
   // Las solicitudes son todas las que han solicitado los clientes 
-  
-  
+
   class Solicitudes {
     constructor(nombre, monto, ingreso, credito, plazo) {
       this.nombre = nombre
@@ -83,37 +104,19 @@ tiposDeCredito = [
       this.ingreso = ingreso
       this.credito = credito
       this.plazo = plazo
+      console.log(nombre)
     }
-    //Cn idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
-      indice = tiposDeCredito.indexOf(this.credito)
-      ixaplicar = tiposDecredito.esquema.interes[indice]
+    //Con idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
+      indice1 = tiposDeCredito.indexOf(this.credito)
+      indice2 = tiposDeCredito[indice1].esquema.indexOf(plazo)
+      intereporaplicar = tiposDeCredito[indice1].esquema.interes[this.indice2]
+      //Falta encontrar el interes de acuerdo al plazo elegido
       autorizado(){
-          pagomensual = (this.monto*(1+ixaplicar/100)/this.plazo)
+          pagomensual = (this.monto*(1+interesporaplicar/100)/this.plazo)
           if (pagomensual>=(this.ingreso*0.3)){
             return false}
           else {return true}
           }
           //alert("El credito fue autorizado ? $autorizado()")
       }
-  
-//Después de haberle preguntado al cliente en el Index, leemos el formularo del storage
-const div1 = document.querySelector('.div1')
-const formulario = document.getElementById('form')
-formulario.onsubmit = (e)=>{
-    e.preventDefault()
-    Array.from(e.target.children).forEach(elemento=>{
-      //Me falta asignar el dato del storage a una variable para pasarla a la clase
-      //Nombre
-      //monto
-      //ingreso
-      //credito deseado
-      //Plazo deseado
-        console.log(elemento.value)
-
-    })
-}
-
-  //Se instancia la solicitud como una nueva de la clase Solicitudes 
-  const solicitud = new Solicitudes(nombre,monto,ingreso,credito)
-  
-  
+      
