@@ -75,25 +75,43 @@ tiposDeCredito = [
 
 // Las solicitudes son todas las que han solicitado los clientes 
 
-let credito = [] //[tipo, [esquema.plazo, esquema.interes]]
 
 class Solicitudes {
-  constructor(nombre, monto, ingreso, credito) {
+  constructor(nombre, monto, ingreso, credito, plazo) {
     this.nombre = nombre
     this.monto = monto
     this.ingreso = ingreso
     this.credito = credito
+    this.plazo = plazo
   }
+  //Con idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
+    indice = tiposDeCredito.indexOf(this.credito)
+    ixaplicar = tiposDecredito.esquema.interes[indice]
     autorizado(){
-        pagomensual = this.monto/this.credito.plazo*this.tipodecredito.interes
+        pagomensual = (this.monto*(1+ixaplicar/100)/this.plazo)
         if (pagomensual>=(this.ingreso*0.3)){
           return false}
         else {return true}
         }
+        //alert("El credito fue autorizado ? $autorizado()")
     }
 
-//Preguntarle al cliente que tipo de credito quiere, monto y plazo
+//Después de haberle preguntado al cliente en el Index, leemos el formularo del storage
+const div1 = document.querySelector('.div1')
+const formulario = document.getElementById('form')
+formulario.onsubmit = (e)=>{
+  e.preventDefault()
+  Array.from(e.target.children).forEach(elemento=>{
+    //Me falta asignar el dato del storage a una variable para pasarla a la clase
+    //Nombre
+    //monto
+    //ingreso
+    //credito deseado
+    //Plazo deseado
+      console.log(elemento.value)
 
+  })
+}
 
 //Se instancia la solicitud como una nueva de la clase Solicitudes 
 const solicitud = new Solicitudes(nombre,monto,ingreso,credito)

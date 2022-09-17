@@ -7,8 +7,31 @@
     <title>Document</title>
 </head>
 <body>
-
-    <script src="/js/desafio3.js"></script>
+    <h2>Ingrese los siguientes datos para su solicitud de credito</h2> 
+    <div class="div1"></div>
+   <form id="form">
+        <input type="text" id="nombre" placeholder="Ingresa su nombre y apellido">
+        <input type="number" id="monto" placeholder="Que monto de credito que desea?">
+        <input type="number" id="ingreso" placeholder="Que ingreso mensual tiene?">
+        <select type="text" id="credito">
+            <option >Elige un tipo de credito...</option>
+            <option>Simple</option>
+            <option>Auto</option>
+            <option>Hipotecario</option>
+        </select>
+        <select type="number" id="plazo">
+            <option >Elija el plazo ...</option>
+            <option>12</option>
+            <option>24</option>
+            <option>36</option>
+            <option>120</option>
+            <option>180</option>
+            <option>240</option>
+        </select>
+        <input type="submit" value="SOLICITAR">
+    </form>
+    
+    <script src="/js/desafio4.js"></script>
 
 </body>
 </html>
