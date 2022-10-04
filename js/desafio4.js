@@ -75,7 +75,6 @@ tiposDeCredito = [
   
   
   //Después de haberle preguntado al cliente en el Index, leemos el formularo del storage
-
 const solicitud = []
 const div1 = document.querySelector('.div1')
 const formulario = document.getElementById('form')
@@ -87,11 +86,11 @@ formulario.onsubmit = (e)=>{
     })
 }
 
-const nombre = solicitud[0]
-const monto = solicitud[1]
-const ingreso = solicitud[2]
-const credito = solicitud[3]
-const plazo = solicitud[4]
+nombre = solicitud[0]
+monto = solicitud[1]
+ingreso = solicitud[2]
+credito = solicitud[3]
+plazo = solicitud[4]
 
 console.log(nombre)
 
@@ -104,19 +103,29 @@ console.log(nombre)
       this.ingreso = ingreso
       this.credito = credito
       this.plazo = plazo
-      console.log(nombre)
     }
     //Con idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
       indice1 = tiposDeCredito.indexOf(this.credito)
       indice2 = tiposDeCredito[indice1].esquema.indexOf(plazo)
       intereporaplicar = tiposDeCredito[indice1].esquema.interes[this.indice2]
-      //Falta encontrar el interes de acuerdo al plazo elegido
+      // encontrar el interes de acuerdo al plazo elegido
       autorizado(){
           pagomensual = (this.monto*(1+interesporaplicar/100)/this.plazo)
           if (pagomensual>=(this.ingreso*0.3)){
             return false}
           else {return true}
           }
-          //alert("El credito fue autorizado ? $autorizado()")
+      //alert("El credito fue autorizado ? $autorizado()")
+      if (autorizado){
+          Swal.fire({
+            icon: 'success',
+            title: 'Oops... lo sentimos mucho !!',
+            text: 'Su crédito no fue autorizado!',})
+          }
+      else (){
+          Swal.fire({
+              icon: 'error',
+              title: 'Oops... lo sentimos mucho !!',
+              text: 'Su crédito no fue autorizado!',})
+          }
       }
-      
