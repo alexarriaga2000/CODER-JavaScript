@@ -85,12 +85,13 @@ formulario.onsubmit = (e)=>{
         solicitud.push(elemento.value)
     })
 }
+//Es la informacion de la solicitud del cliente
 
-nombre = solicitud[0]
-monto = solicitud[1]
-ingreso = solicitud[2]
-credito = solicitud[3]
-plazo = solicitud[4]
+const nombre  = solicitud[0]
+const monto   = solicitud[1]
+const ingreso = solicitud[2]
+const credito = solicitud[3]
+const plazo   = solicitud[4]
 
 console.log(nombre)
 
@@ -105,9 +106,12 @@ console.log(nombre)
       this.plazo = plazo
     }
     //Con idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
-      indice1 = tiposDeCredito.indexOf(this.credito)
-      indice2 = tiposDeCredito[indice1].esquema.indexOf(plazo)
-      intereporaplicar = tiposDeCredito[indice1].esquema.interes[this.indice2]
+      // indice1 = tiposDeCredito.indexOf(this.credito)
+      // indice2 = tiposDeCredito[indice1].esquema.indexOf(plazo)
+      // intereporaplicar = tiposDeCredito[indice1].esquema.interes[this.indice2]
+
+
+
       // encontrar el interes de acuerdo al plazo elegido
       autorizado(){
           pagomensual = (this.monto*(1+interesporaplicar/100)/this.plazo)
