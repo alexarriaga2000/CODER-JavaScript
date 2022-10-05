@@ -1,0 +1,14 @@
+[
+    {
+        "credito":"simple",
+        "tasa": "28"
+    },
+    {
+        "credito":"automotriz",
+        "tasa":"14"
+    },
+    {
+        "credito":"hipotecario",
+        "tasa":"9.5"
+    }
+]
