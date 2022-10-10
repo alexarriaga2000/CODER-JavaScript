@@ -4,26 +4,33 @@
 formulario.onsubmit = async () => {
 
   // fetch a archivo interno
-  const infoTasas = await fetch('./tasas.json')
-  const infoTasasJson = await infoTasas.json()
 
-}
+fetch('/tasas.json')
+then((res) => res.JSON())
+then((data => {  
 
-filtrado.onsubmit = async () => {
-    let info
-    const credito = solicitud[3]
+let tasas = getElementsByClassName('tasas')[0]
+
+}))
+  console.log(tasas)}
+
+//   botonFiltrado.onclick = async () => {
+//     let info
+//     const inputValue = credito.value
+//     const selectValue = tasa.value
     
-    if (credito === 'simple') {
-      info = await fetch(
-        `https://rickandmortyapi.com/api/character/?name=${tasa}`
-      )
-    } else if (credito === 'automotriz') {
-      info = await fetch(
-        `https://rickandmortyapi.com/api/character/?name=${tasa}`
-      )
-    } else {
-      info = await fetch(
-        `https://rickandmortyapi.com/api/character/?status=${tasa}`
-      )
-    }
-}
+//     if (inputValue === 'simple' && selectValue !== 'todos') {
+//       info = await fetch("/.tasas.jason/?tasa=${inputValue})}")
+      
+//     } else if (inputName !== '' && selectValue === 'todos') {
+//       info = await fetch(
+//         `https://rickandmortyapi.com/api/character/?name=${inputValue}`
+//       )
+//     } else {
+//       info = await fetch(
+//         `https://rickandmortyapi.com/api/character/?status=${selectValue}`
+//       )
+//     }
+
+// }
+// }

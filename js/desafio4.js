@@ -85,25 +85,15 @@ formulario.onsubmit = (e)=>{
         solicitud.push(elemento.value)
     })
 }
-//Es la informacion de la solicitud del cliente
-
-const nombre  = solicitud[0]
-const monto   = solicitud[1]
-const ingreso = solicitud[2]
-const credito = solicitud[3]
-const plazo   = solicitud[4]
-
-console.log(nombre)
-
   // Las solicitudes son todas las que han solicitado los clientes 
 
   class Solicitudes {
     constructor(nombre, monto, ingreso, credito, plazo) {
-      this.nombre = nombre
-      this.monto = monto
-      this.ingreso = ingreso
-      this.credito = credito
-      this.plazo = plazo
+      this.nombre = solicitud[0]
+      this.monto = solicitud[1]
+      this.ingreso = solicitud[2]
+      this.credito = solicitud[3]
+      this.plazo = solicitud[4]
     }
     //Con idexof busco el interes que aplica de acuerdo al credito solicitado en el array tiposDeCredito
       // indice1 = tiposDeCredito.indexOf(this.credito)
